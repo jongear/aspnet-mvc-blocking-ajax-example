@@ -13,6 +13,10 @@
         var self = this;
 
         self.runBlockingExample = function () {
+            self.call1 = false;
+            self.call2 = false;
+            self.call3 = false;
+
             $http.get('/blockingajax/call1').then(call1Final);
 
             function call1Final(result1){
@@ -33,6 +37,10 @@
         };
 
         self.runNonblockingExample = function () {
+            self.noncall1 = false;
+            self.noncall2 = false;
+            self.noncall3 = false;
+
             $http.get('/nonblockingajax/call4').then(call1Final);
 
             function call1Final(result1) {

@@ -16,14 +16,15 @@
             <li>Call 1 will return in 2.5 seconds</li>
             <li>Call 2 will return in 5 seconds</li>
             <li>Call 3 will return in 7.5 seconds</li>
+            <li>Total Elapsed call time should be roughly 15 seconds</li>
         </ul>
     </div>
 
     <div class="row">
         <div class="float-right"><button class="btn btn-primary" ng-click="example.runBlockingExample()">Run Blocking Test</button></div>
         <div class="col-md-3">Call 1: <span ng-show="example.call1">complete</span></div>
-        <div class="col-md-3">{{example.call2}}</div>
-        <div class="col-md-3">{{example.call3}}</div>
+        <div class="col-md-3">Call 2: <span ng-show="example.call2">complete</span></div>
+        <div class="col-md-3">Call 3: <span ng-show="example.call3">complete</span></div>
     </div>
     <br />
     <br />
@@ -34,13 +35,14 @@
             <li>Call 1 will return in 2.5 seconds</li>
             <li>Call 2 will return in 5 seconds</li>
             <li>Call 3 will return in 7.5 seconds</li>
+            <li>Total Elapsed call time should be roughly 7.5 seconds</li>
         </ul>
     </div>
 
     <div class="row">
         <div class="float-right"><button class="btn btn-primary" ng-click="example.runNonblockingExample()">Run Async Test</button></div>
-        <div class="col-md-3">{{example.noncall1}}</div>
-        <div class="col-md-3">{{example.noncall2}}</div>
-        <div class="col-md-3">{{example.noncall3}}</div>
+        <div class="col-md-3">Call 1: <span ng-show="example.noncall1">complete</span></div>
+        <div class="col-md-3">Call 2: <span ng-show="example.noncall2">complete</span></div>
+        <div class="col-md-3">Call 3: <span ng-show="example.noncall3">complete</span></div>
     </div>
 </div>
