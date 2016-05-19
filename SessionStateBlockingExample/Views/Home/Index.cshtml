@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row" ng-controller="exampleCtrl as example">
+    <div class="row">
+        <h2 class="col-md-12">Session State Blocking</h2>
+        <p class="col-md-12">When concurrent requests are made to MVC through the same session they are run synchronously to ensure that the session is updated uniformly.  This is problematic for async workloads that are AJAX heavy as it causes all async calls to run synchronously.  </p>
+    </div>
+
+    <div class="row">
+        <h4 class="col-md-12">Blocking Example</h4>
+        <p class="col-md-12">This example will attempt to call 3 methods, each will return a value for each of the 3 columns synchronously.</p>
+        <ul>
+            <li>Call 1 will return in 2.5 seconds</li>
+            <li>Call 2 will return in 5 seconds</li>
+            <li>Call 3 will return in 7.5 seconds</li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="float-right"><button class="btn btn-primary" ng-click="example.runBlockingExample()">Run Blocking Test</button></div>
+        <div class="col-md-3">Call 1: <span ng-show="example.call1">complete</span></div>
+        <div class="col-md-3">{{example.call2}}</div>
+        <div class="col-md-3">{{example.call3}}</div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <h4 class="col-md-12">Asynchronous Example</h4>
+        <p class="col-md-12">This example will also attempt to call 3 methods, each will return a value for each of the 3 columns.  Since this method is utilizing the readonly method we will not experience session blocking</p>
+        <ul>
+            <li>Call 1 will return in 2.5 seconds</li>
+            <li>Call 2 will return in 5 seconds</li>
+            <li>Call 3 will return in 7.5 seconds</li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="float-right"><button class="btn btn-primary" ng-click="example.runNonblockingExample()">Run Async Test</button></div>
+        <div class="col-md-3">{{example.noncall1}}</div>
+        <div class="col-md-3">{{example.noncall2}}</div>
+        <div class="col-md-3">{{example.noncall3}}</div>
+    </div>
+</div>
