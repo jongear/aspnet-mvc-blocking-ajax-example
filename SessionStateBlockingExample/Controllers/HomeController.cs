@@ -11,7 +11,7 @@ namespace SessionStateBlockingExample.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            Session["TestVariable"] = "testing";
+            Session["TestVariable"] = "Testing hydrating a session variable";
 
             return View();
         }
