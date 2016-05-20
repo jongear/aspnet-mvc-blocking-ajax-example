@@ -21,14 +21,26 @@
     </div>
 
     <div class="row">
-        <div class="float-right"><button class="btn btn-primary" ng-click="example.runBlockingExample()">Run Blocking Test</button></div>
-        <div class="col-md-3">Call 1: <span ng-show="example.call1">complete</span></div>
-        <div class="col-md-3">Call 2: <span ng-show="example.call2">complete</span></div>
-        <div class="col-md-3">Call 3: <span ng-show="example.call3">complete</span></div>
+        <div class="col-md-12"><button class="btn btn-primary" ng-click="example.runBlockingExample()">Run Blocking Test</button></div>
     </div>
-    <br />
-    <br />
-    <div class="row">
+    <div class="row voffset2">
+        <div class="col-md-3">
+            <div ng-class="example.callBackground(example.call1, example.blockingExampleIsRunning)">
+                Call 1: <span ng-show="example.call1">complete</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div ng-class="example.callBackground(example.call2, example.blockingExampleIsRunning)">
+                Call 2: <span ng-show="example.call2">complete</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div ng-class="example.callBackground(example.call3, example.blockingExampleIsRunning)">
+                Call 3: <span ng-show="example.call3">complete</span>
+            </div>
+        </div>
+    </div>
+    <div class="row voffset4">
         <h4 class="col-md-12">Asynchronous Example</h4>
         <p class="col-md-12">This example will also attempt to call 3 methods, each will return a value for each of the 3 columns.  Since this method is utilizing the readonly method we will not experience session blocking</p>
         <ul>
@@ -40,9 +52,25 @@
     </div>
 
     <div class="row">
-        <div class="float-right"><button class="btn btn-primary" ng-click="example.runNonblockingExample()">Run Async Test</button></div>
-        <div class="col-md-3">Call 1: <span ng-show="example.noncall1">complete</span></div>
-        <div class="col-md-3">Call 2: <span ng-show="example.noncall2">complete</span></div>
-        <div class="col-md-3">Call 3: <span ng-show="example.noncall3">complete</span></div>
+        <div class="col-md-12">
+            <button class="btn btn-primary" ng-click="example.runNonblockingExample()">Run Async Test</button>
+        </div>
+    </div>
+    <div class="row voffset2">
+        <div class="col-md-3">
+            <div ng-class="example.callBackground(example.noncall1, example.nonBlockingExampleIsRunning)">
+                Call 1: <span ng-show="example.noncall1">complete</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div ng-class="example.callBackground(example.noncall2, example.nonBlockingExampleIsRunning)">
+                Call 2: <span ng-show="example.noncall2">complete</span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div ng-class="example.callBackground(example.noncall3, example.nonBlockingExampleIsRunning)">
+                Call 3: <span ng-show="example.noncall3">complete</span>
+            </div>
+        </div>
     </div>
 </div>

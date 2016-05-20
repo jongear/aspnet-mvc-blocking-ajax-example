@@ -1,8 +1,6 @@
 ﻿(function () {
     'use strict';
 
-    //angular.module('blockingApp', []);
-
     angular
         .module('blockingApp', [])
         .controller('exampleCtrl', exampleCtrl);
@@ -12,7 +10,28 @@
     function exampleCtrl($http) {
         var self = this;
 
+        self.blockingExampleIsRunning = false;
+        self.nonBlockingEampleIsRunning = false;
+
+        self.blockingExampleIsComplete = function () {
+            return !self.blockingExampleIsRunning && self.call1 && self.call2 && self.call3;
+        };
+
+        self.nonBlockingExampleIsComplete = function () {
+            return !self.nonBlockingEampleIsRunning && self.noncall1 && self.noncall2 && self.noncall3;
+        };
+
+        self.callBackground = function (serviceCall, runningExample) {
+            if (serviceCall)
+                return 'alert alert-success';
+            else if (!runningExample)
+                return 'alert alert-info';
+            else
+                return 'alert alert-warning'
+        };
+
         self.runBlockingExample = function () {
+            self.blockingExampleIsRunning = true;
             self.call1 = false;
             self.call2 = false;
             self.call3 = false;
@@ -21,6 +40,8 @@
 
             function call1Final(result1){
                 self.call1 = result1.data;
+
+                self.updateBlockingExampleRunStatus();
             }
 
             $http.get('/blockingajax/call2').then(call2Final);
@@ -37,6 +58,7 @@
         };
 
         self.runNonblockingExample = function () {
+            self.nonBlockingExampleIsRunning = true;
             self.noncall1 = false;
             self.noncall2 = false;
             self.noncall3 = false;
